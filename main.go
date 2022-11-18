@@ -9,11 +9,9 @@ import (
 	cli "github.com/urfave/cli/v2"
 )
 
-var (
-	VERSION    = "0.0.0"
-	BUILD_ID   = ""
-	BUILD_TIME = ""
-)
+var VERSION = "0.0.1-dev"
+var BUILD_ID = "0"
+var BUILD_TIME = "0"
 
 // Commands list
 var Commands = []*cli.Command{
