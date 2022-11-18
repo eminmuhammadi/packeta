@@ -8,5 +8,5 @@ git clone https://github.com/eminmuhammadi/packeta.git && cd packeta && chmod +x
 
 ## Usage
 ```bash
-$ packeta -h
+packeta -h
 ```

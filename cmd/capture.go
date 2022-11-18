@@ -13,12 +13,13 @@ func Capture() *cli.Command {
 		Flags: []cli.Flag{
 			&cli.StringFlag{
 				Name:     "interface",
-				Aliases:  []string{"iface"},
+				Aliases:  []string{"i"},
 				Usage:    "Input file",
 				Required: true,
 			},
 			&cli.StringFlag{
 				Name:     "filter",
+				Aliases:  []string{"f"},
 				Usage:    "Filter expression",
 				Required: false,
 			},

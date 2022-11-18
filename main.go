@@ -9,7 +9,7 @@ import (
 	cli "github.com/urfave/cli/v2"
 )
 
-const (
+var (
 	VERSION    = "0.0.0"
 	BUILD_ID   = ""
 	BUILD_TIME = ""
