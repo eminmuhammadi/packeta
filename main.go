@@ -9,7 +9,7 @@ import (
 	cli "github.com/urfave/cli/v2"
 )
 
-var VERSION = "0.0.1-dev"
+var VERSION = "0.0.2-dev"
 var BUILD_ID = "0"
 var BUILD_TIME = "0"
 
@@ -33,7 +33,7 @@ func main() {
 		Name:      "packeta",
 		Usage:     "Network packet analyzer",
 		Version:   VERSION,
-		Copyright: "github.com/eminmuhammadi/packeta",
+		Copyright: "packeta  Copyright (C) 2022  Emin Muhammadi",
 		ExtraInfo: func() map[string]string {
 			return map[string]string{
 				"LICENSE":    "The GNU General Public License",
