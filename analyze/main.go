@@ -18,9 +18,19 @@ type Packet struct {
 	Layers   []Layer
 }
 
-// Basic packet analyzer
+func PrettyPrint(packet gopacket.Packet) error {
+	return Analyzer(packet, true)
+}
+
 func Print(packet gopacket.Packet) error {
+	return Analyzer(packet, false)
+}
+
+// Basic packet analyzer
+func Analyzer(packet gopacket.Packet, pretty bool) error {
 	var layers []Layer
+	var jsonByte []byte
+	var err error
 
 	for _, layer := range packet.Layers() {
 		layers = append(layers, Layer{
@@ -35,12 +45,17 @@ func Print(packet gopacket.Packet) error {
 		Layers:   layers,
 	}
 
-	json, err := json.MarshalIndent(p, "", "  ")
+	if pretty {
+		jsonByte, err = json.MarshalIndent(p, "", "  ")
+	} else {
+		jsonByte, err = json.Marshal(p)
+	}
+
 	if err != nil {
 		return err
 	}
 
-	fmt.Println(string(json))
+	fmt.Println(string(jsonByte))
 
 	return nil
 }

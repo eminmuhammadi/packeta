@@ -9,7 +9,7 @@ import (
 	cli "github.com/urfave/cli/v2"
 )
 
-var VERSION = "0.1.0-dev"
+var VERSION = "0.1.1-dev"
 var BUILD_ID = "0"
 var BUILD_TIME = "0"
 

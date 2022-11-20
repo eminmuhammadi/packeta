@@ -23,10 +23,17 @@ func Capture() *cli.Command {
 				Usage:    "Filter expression",
 				Required: false,
 			},
+			&cli.BoolFlag{
+				Name:     "pretty",
+				Aliases:  []string{"p"},
+				Usage:    "Pretty print",
+				Required: false,
+			},
 		},
 		Action: func(ctx *cli.Context) error {
 			ifaceName := ctx.String("interface")
 			filter := ctx.String("filter")
+			pretty := ctx.Bool("pretty")
 
 			// Get the handler
 			handler, err := capture.Handler(ifaceName)
@@ -42,7 +49,11 @@ func Capture() *cli.Command {
 			}
 
 			// Start capturing
-			handler.Start(analyze.Print)
+			if pretty {
+				handler.Start(analyze.PrettyPrint)
+			} else {
+				handler.Start(analyze.Print)
+			}
 
 			return err
 		},
